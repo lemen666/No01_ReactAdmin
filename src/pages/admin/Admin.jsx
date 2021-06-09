@@ -14,7 +14,8 @@ import Histogram from '../histogram/Histogram'
 import Line from '../line/Line'
 import Pie from '../pie/Pie'
 import Order from '../order/Order'
-const { Header, Footer, Sider, Content } = Layout;
+import Header from '../../components/header/Header';
+const {Footer, Sider, Content } = Layout;
 export default class Admin extends Component {
     render() {
         const user=memoryUtils.user
@@ -34,15 +35,18 @@ export default class Admin extends Component {
                     <MenuNav/>
                 </Sider>
                 <Layout>
-                    <Header className="admin_header">Header</Header>
+
+                    <Header>
+                        <Header/>
+                    </Header>
                     <Content className="admin_content">
                         <Switch>
                             <Route path="/home" component={Home}/>
                             <Route path="/category" component={Category}/>
-                            <Route path="/goods" component={Goods}/>
+                            <Route path="/product" component={Goods}/>
                             <Route path="/user" component={User}/>
-                            <Route path="/actor" component={Actor}/>
-                            <Route path="/charts/histogram" component={Histogram}/>
+                            <Route path="/role" component={Actor}/>
+                            <Route path="/charts/bar" component={Histogram}/>
                             <Route path="/charts/line" component={Line}/>
                             <Route path="/charts/pie" component={Pie}/>
                             <Route path="/order" component={Order}/>

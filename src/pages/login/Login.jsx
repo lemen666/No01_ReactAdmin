@@ -7,15 +7,19 @@ import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils';
 import './login.less'
 import { Redirect } from 'react-router';
+
+
 export default class Login extends Component {
     loginFun=(result)=>{
         if(result.status===0){//登录成功
             const user=result.data
+            console.log(user,'loginuser')
             message.success('登录成功',2)
-            this.props.history.replace('/')
-            // 记录用户的数据
             memoryUtils.user=user
             storageUtils.saveUser(user)
+            this.props.history.replace('/')
+            // 记录用户的数据
+            
           }else{//登录失败
             message.error('登录失败，请检查一下您的账号或密码是否有误！')
           }
